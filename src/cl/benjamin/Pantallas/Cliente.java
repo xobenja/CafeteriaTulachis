@@ -42,7 +42,7 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("oh bing");
 
         jButton1.setText("jButton1");
 
@@ -60,9 +60,6 @@ public class Cliente extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -70,7 +67,10 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(296, 296, 296)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(444, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
