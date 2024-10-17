@@ -4,6 +4,8 @@
  */
 package cl.benjamin.Pantallas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 56950
@@ -15,6 +17,7 @@ public class LoginGerente extends javax.swing.JFrame {
      */
     public LoginGerente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -48,6 +51,11 @@ public class LoginGerente extends javax.swing.JFrame {
         });
 
         jButton2.setText("Ingresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,6 +114,25 @@ public class LoginGerente extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String contraseña= jTextField1.getText();
+        if (contraseña.isEmpty()){
+            JOptionPane.showMessageDialog(null, "El campo esta vacio... no sea troll");
+        }else{
+            if(contraseña.equals("contraseña1") ||contraseña.equals("1234")){
+                JOptionPane.showMessageDialog(null, "Bienvenido Jefeee dele nomas ");
+                Gerente newframe= new Gerente();
+                newframe.setVisible(true);
+                
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Contraseña utilizada es incorrecta");
+                    }
+        
+        } 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
