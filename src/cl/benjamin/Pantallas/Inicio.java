@@ -78,7 +78,7 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
-        jLabel5.setText("REALIZAR COMPRA");
+        jLabel5.setText("REALIZAR COMPRAS");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cl/benjamin/Pantallas/Imagenes/images_1.png"))); // NOI18N
 
