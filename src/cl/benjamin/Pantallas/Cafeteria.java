@@ -22,7 +22,7 @@ public class Cafeteria extends javax.swing.JFrame {
     double precios[]={1500,2500,1800,1200,1600};
     String tamanio []={"Chico", "Mediano", "Grande"};
     double preciosT[]={0,300,500};
-    String tipoLeche []={"Entera", "Descremada","Semidescremada","Vegetal"};
+    String tiposLeche []={"Entera", "Descremada","Semidescremada","Vegetal"};
     double precio=0;
     int cantidad=0;
     DefaultTableModel modelo=new DefaultTableModel();
@@ -39,7 +39,7 @@ public class Cafeteria extends javax.swing.JFrame {
         cboProducto.setModel(comboModel);
         DefaultComboBoxModel combomode2 = new DefaultComboBoxModel(tamanio);
         cboTamanio.setModel(combomode2);
-        DefaultComboBoxModel comboMode3 = new DefaultComboBoxModel(tipoLeche);
+        DefaultComboBoxModel comboMode3 = new DefaultComboBoxModel(tiposLeche);
         cboTamanio.setModel(comboMode3);
         modelo.addColumn("Nombre Producto");
         modelo.addColumn("Precio U.");
