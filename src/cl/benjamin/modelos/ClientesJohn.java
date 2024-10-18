@@ -6,10 +6,19 @@ public class ClientesJohn {
     String descripcion;
     int cantidad;
     String tamanio;
+    String tipoL;
     double precio;
     double importe;
 
     public ClientesJohn() {
+    }
+
+    public String getTipoL() {
+        return tipoL;
+    }
+
+    public void setTipoL(String tipoL) {
+        this.tipoL = tipoL;
     }
     
     public void setTamanio(String tamanio) {

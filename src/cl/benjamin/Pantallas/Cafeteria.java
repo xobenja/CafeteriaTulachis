@@ -39,6 +39,8 @@ public class Cafeteria extends javax.swing.JFrame {
         cboProducto.setModel(comboModel);
         DefaultComboBoxModel combomode2 = new DefaultComboBoxModel(tamanio);
         cboTamanio.setModel(combomode2);
+        DefaultComboBoxModel comboMode3 = new DefaultComboBoxModel(tipoLeche);
+        cboTamanio.setModel(comboMode3);
         modelo.addColumn("Nombre Producto");
         modelo.addColumn("Precio U.");
         modelo.addColumn("Tamaño");
@@ -74,6 +76,8 @@ public class Cafeteria extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cboTamanio = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        cboTipoLeche = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +92,15 @@ public class Cafeteria extends javax.swing.JFrame {
             new String [] {
                 "Producto", "Cantidad", "Precio", "Importe"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblProductos);
 
         lblIva.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -179,11 +191,21 @@ public class Cafeteria extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setText("TIPO LECHE");
+
+        cboTipoLeche.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cboTipoLeche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Eliga Leche" }));
+        cboTipoLeche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboTipoLecheActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -207,9 +229,11 @@ public class Cafeteria extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel4))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,6 +256,9 @@ public class Cafeteria extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(200, 200, 200))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,6 +278,10 @@ public class Cafeteria extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(cboTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -314,7 +345,9 @@ public class Cafeteria extends javax.swing.JFrame {
         venta.setDescripcion(cboProducto.getSelectedItem().toString());
         venta.setPrecio(precio);
         venta.setTamanio(cboTamanio.getSelectedItem().toString());
+        System.out.println("Tamaño" + cboTamanio.getSelectedItem());
         venta.setCantidad(cantidad);
+        venta.setTipoL(cboTipoLeche.getSelectedItem().toString());
         venta.setImporte(precio * cantidad);
         if (!buscarVenta(venta)){
             listaVentas.add(venta);
@@ -326,6 +359,10 @@ public class Cafeteria extends javax.swing.JFrame {
     private void cboTamanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTamanioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboTamanioActionPerformed
+
+    private void cboTipoLecheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoLecheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboTipoLecheActionPerformed
 
     public boolean buscarVenta(ClientesJohn nueva){
         for (ClientesJohn v : listaVentas) {
@@ -361,14 +398,17 @@ public class Cafeteria extends javax.swing.JFrame {
     public void actualizarTabla() {
     while (modelo.getRowCount() > 0) {
         modelo.removeRow(0);
+    
     }
     double subtotal= 0;
     for (ClientesJohn v : listaVentas) {
-        Object[] x = new Object[4];
+        Object[] x = new Object[6];
         x[0] = v.getDescripcion();
         x[1] = aMoneda(v.getPrecio());
-        x[2] = v.getCantidad();
-        x[3] = aMoneda(v.getImporte());
+        x[2] = v.getTamanio();
+        x[3] = v.getTipoL();
+        x[4] = v.getCantidad();
+        x[5] = aMoneda(v.getImporte());
         subtotal+=v.getImporte();
         modelo.addRow(x);
     }
@@ -418,6 +458,7 @@ public class Cafeteria extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JComboBox<String> cboProducto;
     private javax.swing.JComboBox<String> cboTamanio;
+    private javax.swing.JComboBox<String> cboTipoLeche;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -429,6 +470,7 @@ public class Cafeteria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbImporte;
     private javax.swing.JLabel lblIva;
