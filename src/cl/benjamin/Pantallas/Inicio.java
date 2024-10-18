@@ -4,8 +4,6 @@
  */
 package cl.benjamin.Pantallas;
 
-import cl.benjamin.modelos.Cafeteria;
-
 /**
  *
  * @author 56950

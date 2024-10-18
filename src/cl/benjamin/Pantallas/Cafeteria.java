@@ -21,7 +21,7 @@ public class Cafeteria extends javax.swing.JFrame {
     String productos[]={"Cafe Mocaccino","Cafe Latte","Cafe Capuccin","Cafe Espresso","Cafe Americano"};
     double precios[]={1500,2500,1800,1200,1600};
     String tamanio []={"Chico", "Mediano", "Grande"};
-    double preciosL[]={0,300,500};
+    double preciosT[]={0,300,500};
     String tipoLeche []={"Entera", "Descremada","Semidescremada","Vegetal"};
     double precio=0;
     int cantidad=0;
@@ -37,8 +37,8 @@ public class Cafeteria extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         DefaultComboBoxModel comboModel=new DefaultComboBoxModel(productos);
         cboProducto.setModel(comboModel);
-        DefaultComboBoxMode2 comboMode2 = new DefaultComboBoxModel(tamanio);
-        cboProducto.setModel(comboMode2);
+        DefaultComboBoxModel combomode2 = new DefaultComboBoxModel(tamanio);
+        cboTamanio.setModel(combomode2);
         modelo.addColumn("Nombre Producto");
         modelo.addColumn("Precio U.");
         modelo.addColumn("Tamaño");
@@ -313,6 +313,7 @@ public class Cafeteria extends javax.swing.JFrame {
         venta.setId(cboProducto.getSelectedIndex());
         venta.setDescripcion(cboProducto.getSelectedItem().toString());
         venta.setPrecio(precio);
+        venta.setTamanio(cboTamanio.getSelectedItem().toString());
         venta.setCantidad(cantidad);
         venta.setImporte(precio * cantidad);
         if (!buscarVenta(venta)){
