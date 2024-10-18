@@ -286,7 +286,7 @@ public class Cafeteria extends javax.swing.JFrame {
         venta.setPrecio(precio);
         venta.setCantidad(cantidad);
         venta.setImporte(precio * cantidad);
-        if (buscarVenta(venta)){
+        if (!buscarVenta(venta)){
             listaVentas.add(venta);
         }
         actualizarTabla();
@@ -307,6 +307,8 @@ public class Cafeteria extends javax.swing.JFrame {
     public void borrarVenta(){
         precio=0;
         cantidad=1;
+        lblPrecio.setText(aMoneda(0));
+        lbImporte.setText(aMoneda(0));
         cboProducto.setSelectedIndex(0);
         spnCantidad.setValue(1);
         calcularPrecio();
