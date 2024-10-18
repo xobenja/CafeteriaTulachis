@@ -9,10 +9,39 @@ public class ClientesJohn {
     String tipoL;
     double precio;
     double importe;
+    boolean cremabatida;
+    boolean canela;
+    boolean jarabe;
 
     public ClientesJohn() {
     }
 
+    public boolean isCremabatida() {
+        return cremabatida;
+    }
+
+    public void setCremabatida(boolean cremabatida) {
+        this.cremabatida = cremabatida;
+    }
+
+    public boolean isCanela() {
+        return canela;
+    }
+
+    public void setCanela(boolean canela) {
+        this.canela = canela;
+    }
+
+    public boolean isJarabe() {
+        return jarabe;
+    }
+
+    public void setJarabe(boolean jarabe) {
+        this.jarabe = jarabe;
+    }
+
+    
+    
     public String getTipoL() {
         return tipoL;
     }

@@ -19,12 +19,15 @@ import javax.swing.table.DefaultTableModel;
 public class Cafeteria extends javax.swing.JFrame {
     
     String productos[]={"Cafe Mocaccino","Cafe Latte","Cafe Capuccin","Cafe Espresso","Cafe Americano"};
-    double precios[]={1500,2500,1800,1200,1600};
+    double precios[]={1500,2500,1800,1200,1700};
     String tamanio []={"Chico", "Mediano", "Grande"};
     double preciosT[]={0,300,500};
     String tiposLeche []={"Entera", "Descremada","Semidescremada","Vegetal"};
     double precio=0;
     int cantidad=0;
+    boolean cremabatida;
+    boolean canela;
+    boolean jarabe;
     DefaultTableModel modelo=new DefaultTableModel();
     ArrayList<ClientesJohn> listaVentas = new ArrayList<>();
 
@@ -40,12 +43,15 @@ public class Cafeteria extends javax.swing.JFrame {
         DefaultComboBoxModel combomode2 = new DefaultComboBoxModel(tamanio);
         cboTamanio.setModel(combomode2);
         DefaultComboBoxModel comboMode3 = new DefaultComboBoxModel(tiposLeche);
-        cboTamanio.setModel(comboMode3);
+        cboTipoLeche.setModel(comboMode3);
         modelo.addColumn("Nombre Producto");
         modelo.addColumn("Precio U.");
         modelo.addColumn("Tamaño");
         modelo.addColumn("Tipo de Leche");
         modelo.addColumn("CANTIDAD");
+        modelo.addColumn("Crema Batida");
+        modelo.addColumn("Canela");
+        modelo.addColumn("Jarabe");
         modelo.addColumn("IMPORTE");
         actualizarTabla();
         calcularPrecio();
@@ -78,6 +84,9 @@ public class Cafeteria extends javax.swing.JFrame {
         cboTamanio = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         cboTipoLeche = new javax.swing.JComboBox<>();
+        CremaBatida = new javax.swing.JCheckBox();
+        Canela = new javax.swing.JCheckBox();
+        Jarabe = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,6 +211,27 @@ public class Cafeteria extends javax.swing.JFrame {
             }
         });
 
+        CremaBatida.setText("Crema Batida");
+        CremaBatida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CremaBatidaActionPerformed(evt);
+            }
+        });
+
+        Canela.setText("Canela");
+        Canela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CanelaActionPerformed(evt);
+            }
+        });
+
+        Jarabe.setText("Jarabe");
+        Jarabe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JarabeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -233,23 +263,26 @@ public class Cafeteria extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnCantidad))
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(lblPrecio))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbImporte))))
-                            .addComponent(cboTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(spnCantidad))
+                            .addComponent(cboTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CremaBatida)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(lblPrecio))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbImporte)))
+                            .addComponent(Canela)
+                            .addComponent(Jarabe))
+                        .addGap(20, 20, 20)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -276,23 +309,31 @@ public class Cafeteria extends javax.swing.JFrame {
                                 .addComponent(lblPrecio)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(cboTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cboTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(cboTipoLeche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CremaBatida)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Canela)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jarabe)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5))
                             .addComponent(lbImporte, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, Short.MAX_VALUE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -345,9 +386,11 @@ public class Cafeteria extends javax.swing.JFrame {
         venta.setDescripcion(cboProducto.getSelectedItem().toString());
         venta.setPrecio(precio);
         venta.setTamanio(cboTamanio.getSelectedItem().toString());
-        System.out.println("Tamaño" + cboTamanio.getSelectedItem());
         venta.setCantidad(cantidad);
         venta.setTipoL(cboTipoLeche.getSelectedItem().toString());
+        venta.setCremabatida(CremaBatida.isSelected());
+        venta.setCanela(Canela.isSelected());
+        venta.setJarabe(Jarabe.isSelected());
         venta.setImporte(precio * cantidad);
         if (!buscarVenta(venta)){
             listaVentas.add(venta);
@@ -363,6 +406,18 @@ public class Cafeteria extends javax.swing.JFrame {
     private void cboTipoLecheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoLecheActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboTipoLecheActionPerformed
+
+    private void CremaBatidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CremaBatidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CremaBatidaActionPerformed
+
+    private void CanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CanelaActionPerformed
+
+    private void JarabeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JarabeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JarabeActionPerformed
 
     public boolean buscarVenta(ClientesJohn nueva){
         for (ClientesJohn v : listaVentas) {
@@ -402,13 +457,16 @@ public class Cafeteria extends javax.swing.JFrame {
     }
     double subtotal= 0;
     for (ClientesJohn v : listaVentas) {
-        Object[] x = new Object[6];
+        Object[] x = new Object[9];
         x[0] = v.getDescripcion();
         x[1] = aMoneda(v.getPrecio());
         x[2] = v.getTamanio();
         x[3] = v.getTipoL();
         x[4] = v.getCantidad();
-        x[5] = aMoneda(v.getImporte());
+        x[5] = v.isCremabatida();
+        x[6] = v.isCanela();
+        x[7] = v.isJarabe();
+        x[8] = aMoneda(v.getImporte());
         subtotal+=v.getImporte();
         modelo.addRow(x);
     }
@@ -455,6 +513,9 @@ public class Cafeteria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox Canela;
+    private javax.swing.JCheckBox CremaBatida;
+    private javax.swing.JCheckBox Jarabe;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JComboBox<String> cboProducto;
     private javax.swing.JComboBox<String> cboTamanio;
