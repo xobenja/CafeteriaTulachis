@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cl.benjamin.Pantallas;
+
+import cl.benjamin.modelos.Cafeteria;
+
 /**
  *
  * @author 56950
@@ -204,7 +207,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        Cliente newframe= new Cliente();
+        Cafeteria newframe= new Cafeteria();
         newframe.setVisible(true);
         
         this.dispose();
