@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cl.benjamin.Pantallas;
+
 import cl.benjamin.modelos.ClientesJohn;
 import cl.benjamin.Pantallas.Inicio;
 import java.awt.Image;
@@ -17,28 +18,25 @@ import javax.swing.table.DefaultTableModel;
  * @author johnl
  */
 public class Cafeteria extends javax.swing.JFrame {
-    
-    String productos[]={"Cafe Mocaccino","Cafe Latte","Cafe Capuccin","Cafe Espresso","Cafe Americano"};
-    double precios[]={1500,2500,1800,1200,1700};
-    String tamanio []={"Chico", "Mediano", "Grande"};
-    double preciosT[]={0,300,500};
-    String tiposLeche []={"Entera", "Descremada","Semidescremada","Vegetal"};
-    double precio=0;
-    int cantidad=0;
+
+    String productos[] = {"Cafe Mocaccino", "Cafe Latte", "Cafe Capuccino", "Cafe Espresso", "Cafe Americano"};
+    double precios[] = {1500, 2500, 1800, 1200, 1700};
+    String tamanio[] = {"Chico", "Mediano ($300)", "Grande ($500)"};
+    double preciosT[] = {0, 300, 500};
+    String tiposLeche[] = {"Entera", "Descremada", "Semidescremada", "Vegetal"};
+    double precio = 0;
+    int cantidad = 0;
     boolean cremabatida;
     boolean canela;
     boolean jarabe;
-    DefaultTableModel modelo=new DefaultTableModel();
+    DefaultTableModel modelo = new DefaultTableModel();
     ArrayList<ClientesJohn> listaVentas = new ArrayList<>();
 
-    
-    
-    
     public Cafeteria() {
         initComponents();
         this.setTitle("Cafeteria");
         this.setLocationRelativeTo(null);
-        DefaultComboBoxModel comboModel=new DefaultComboBoxModel(productos);
+        DefaultComboBoxModel comboModel = new DefaultComboBoxModel(productos);
         cboProducto.setModel(comboModel);
         DefaultComboBoxModel combomode2 = new DefaultComboBoxModel(tamanio);
         cboTamanio.setModel(combomode2);
@@ -56,6 +54,7 @@ public class Cafeteria extends javax.swing.JFrame {
         actualizarTabla();
         calcularPrecio();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -85,8 +84,8 @@ public class Cafeteria extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         cboTipoLeche = new javax.swing.JComboBox<>();
         CremaBatida = new javax.swing.JCheckBox();
-        Canela = new javax.swing.JCheckBox();
-        Jarabe = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,24 +210,24 @@ public class Cafeteria extends javax.swing.JFrame {
             }
         });
 
-        CremaBatida.setText("Crema Batida");
+        CremaBatida.setText("Crema Batida ($100)");
         CremaBatida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CremaBatidaActionPerformed(evt);
             }
         });
 
-        Canela.setText("Canela");
-        Canela.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox2.setText("Canela ($50)");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CanelaActionPerformed(evt);
+                jCheckBox2ActionPerformed(evt);
             }
         });
 
-        Jarabe.setText("Jarabe");
-        Jarabe.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox3.setText("Jarabe ($80)");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JarabeActionPerformed(evt);
+                jCheckBox3ActionPerformed(evt);
             }
         });
 
@@ -280,8 +279,8 @@ public class Cafeteria extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lbImporte)))
-                            .addComponent(Canela)
-                            .addComponent(Jarabe))
+                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox3))
                         .addGap(20, 20, 20)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -320,9 +319,9 @@ public class Cafeteria extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CremaBatida)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Canela)
+                                .addComponent(jCheckBox2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Jarabe)))
+                                .addComponent(jCheckBox3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -358,28 +357,28 @@ public class Cafeteria extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Inicio newframe= new Inicio();
+        Inicio newframe = new Inicio();
         newframe.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
+
     private void cboProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboProductoActionPerformed
         calcularPrecio();
     }//GEN-LAST:event_cboProductoActionPerformed
 
-    
+
     private void spnCantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnCantidadStateChanged
         calcularPrecio();
     }//GEN-LAST:event_spnCantidadStateChanged
 
-    
+
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         ClientesJohn venta = new ClientesJohn();
         venta.setId(cboProducto.getSelectedIndex());
@@ -389,12 +388,13 @@ public class Cafeteria extends javax.swing.JFrame {
         venta.setCantidad(cantidad);
         venta.setTipoL(cboTipoLeche.getSelectedItem().toString());
         venta.setCremabatida(CremaBatida.isSelected());
-        venta.setCanela(Canela.isSelected());
-        venta.setJarabe(Jarabe.isSelected());
+        venta.setCanela(jCheckBox2.isSelected());
+        venta.setJarabe(jCheckBox3.isSelected());
         venta.setImporte(precio * cantidad);
-        if (!buscarVenta(venta)){
+        if (!buscarVenta(venta)) {
             listaVentas.add(venta);
         }
+
         actualizarTabla();
         borrarVenta();
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -411,75 +411,83 @@ public class Cafeteria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CremaBatidaActionPerformed
 
-    private void CanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanelaActionPerformed
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CanelaActionPerformed
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
-    private void JarabeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JarabeActionPerformed
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JarabeActionPerformed
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
-    public boolean buscarVenta(ClientesJohn nueva){
+    public boolean buscarVenta(ClientesJohn nueva) {
         for (ClientesJohn v : listaVentas) {
-            if(v.getId()==nueva.getId()){
-                int nuevaCantidad=v.getCantidad()+nueva.getCantidad();
+            if (v.getId() == nueva.getId()
+                    && v.getTamanio().equals(nueva.getTamanio())
+                    && v.getTipoL().equals(nueva.getTipoL())
+                    && v.isCremabatida() == nueva.isCremabatida()
+                    && v.isCanela() == nueva.isCanela()
+                    && v.isJarabe() == nueva.isJarabe()) {
+
+                int nuevaCantidad = v.getCantidad() + nueva.getCantidad();
                 v.setCantidad(nuevaCantidad);
-                v.setImporte(v.getPrecio()*nuevaCantidad);
+                v.setImporte(v.getPrecio() * nuevaCantidad);
                 return true;
             }
         }
+
         return false;
     }
-    public void borrarVenta(){
-        precio=0;
-        cantidad=1;
+
+    public void borrarVenta() {
+        precio = 0;
+        cantidad = 1;
         lblPrecio.setText(aMoneda(0));
         lbImporte.setText(aMoneda(0));
         cboProducto.setSelectedIndex(0);
         spnCantidad.setValue(1);
         calcularPrecio();
     }
-    public void calcularPrecio(){
+
+    public void calcularPrecio() {
         precio = precios[cboProducto.getSelectedIndex()];
         cantidad = Integer.parseInt(spnCantidad.getValue().toString());
         lblPrecio.setText(aMoneda(precio));
-        lbImporte.setText(aMoneda(precio*cantidad));
-    }
-    
-    public String aMoneda(double precio) {
-    return "$ " + (Math.round(precio * 100.0) / 100.0) + " CLP";
-    }
-    
-    public void actualizarTabla() {
-    while (modelo.getRowCount() > 0) {
-        modelo.removeRow(0);
-    
-    }
-    double subtotal= 0;
-    for (ClientesJohn v : listaVentas) {
-        Object[] x = new Object[9];
-        x[0] = v.getDescripcion();
-        x[1] = aMoneda(v.getPrecio());
-        x[2] = v.getTamanio();
-        x[3] = v.getTipoL();
-        x[4] = v.getCantidad();
-        x[5] = v.isCremabatida();
-        x[6] = v.isCanela();
-        x[7] = v.isJarabe();
-        x[8] = aMoneda(v.getImporte());
-        subtotal+=v.getImporte();
-        modelo.addRow(x);
-    }
-    double iva=subtotal*0.16;
-    double total=subtotal+iva;
-    lblSubtotal.setText(aMoneda(subtotal));
-    lblIva.setText(aMoneda(iva));
-    lblTotal.setText(aMoneda(total));
-    tblProductos.setModel(modelo);
-        
+        lbImporte.setText(aMoneda(precio * cantidad));
     }
 
-    
+    public String aMoneda(double precio) {
+        return "$ " + (Math.round(precio * 100.0) / 100.0) + " CLP";
+    }
+
+    public void actualizarTabla() {
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+
+        double subtotal = 0;
+        for (ClientesJohn v : listaVentas) {
+            Object[] x = new Object[9];
+            x[0] = v.getDescripcion();
+            x[1] = aMoneda(v.getPrecio());
+            x[2] = v.getTamanio();
+            x[3] = v.getTipoL();
+            x[4] = v.getCantidad();
+            x[5] = v.isCremabatida();
+            x[6] = v.isCanela();
+            x[7] = v.isJarabe();
+            x[8] = aMoneda(v.getImporte());
+            subtotal += v.getImporte();
+            modelo.addRow(x);
+        }
+        double iva = subtotal * 0.16;
+        double total = subtotal + iva;
+        lblSubtotal.setText(aMoneda(subtotal));
+        lblIva.setText(aMoneda(iva));
+        lblTotal.setText(aMoneda(total));
+        tblProductos.setModel(modelo);
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -513,15 +521,15 @@ public class Cafeteria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox Canela;
     private javax.swing.JCheckBox CremaBatida;
-    private javax.swing.JCheckBox Jarabe;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JComboBox<String> cboProducto;
     private javax.swing.JComboBox<String> cboTamanio;
     private javax.swing.JComboBox<String> cboTipoLeche;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
