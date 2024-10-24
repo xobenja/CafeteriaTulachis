@@ -4,6 +4,7 @@
  */
 package Dao;
 
+import cl.benjamin.modelos.Empleados;
 import java.util.ArrayList;
 /**
  *
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  */
 public class DAOEmpleados {
     private ArrayList<String> listaDatos; // Declaración de la lista
+    
 
     public DAOEmpleados() {
         listaDatos = new ArrayList<>(); // Inicialización de la lista
@@ -25,5 +27,20 @@ public class DAOEmpleados {
     public ArrayList<String> obtenerDatos() {
         return listaDatos; // Devuelve la lista de datos
     }
+    public static void agregar(Empleados Empleados){
+        if (leer(Empleados.getRut()) !=null){
+            System.out.println("Error empleado ya existe");
+            return;
+        }
+    }
+    public static Empleados leer(int rut){
+        for (Empleados e1 : lEmpleados) {
+            if (e1.getRut() == rut) {
+                return e1;
+            }
+        }
+        return null;
+    }
+
 }
 

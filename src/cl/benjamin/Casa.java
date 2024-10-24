@@ -308,7 +308,8 @@ public class Casa{
             System.out.println("1. Revisar Stock");
             System.out.println("2. Informacion Empleados");
             System.out.println("3. Informacion de Sueldo Liquido");
-            System.out.println("4. Salir");
+            System.out.println("4. Contratar Empleados");
+            System.out.println("5. Salir");
             System.out.print("Elige una opcion: ");
             opc = scanner.nextInt();
             switch (opc) {
@@ -347,7 +348,7 @@ public class Casa{
                             break;
                     }
                     break;
-                case 4:
+                case 4://agregar empleados aca
                     System.out.println("Saliendo del menu de gerente.");
                     prueba1();
                     break;
@@ -355,6 +356,11 @@ public class Casa{
                     System.out.println("Ingrese un dato valido.");
                     
                     break;
+                case 5:
+                    System.out.println("Saliendo del menu de gerente.");
+                    prueba1();
+                    break;
+                    
             }
         } while (opc != 4);     }
         
@@ -377,5 +383,9 @@ public class Casa{
         System.out.println("Cantidad de Salsas de Manjar: "+SalsaManjar);
         
     }
+    public static void contratarempleados(){
+
+    }
+
 }
 
