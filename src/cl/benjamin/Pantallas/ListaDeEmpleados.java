@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * @author 56950
  */
 public class ListaDeEmpleados extends javax.swing.JFrame {
-    private Object r= new Object[4];
+    private Object r= new Object[8];
     DefaultTableModel modelo;
 
     /**
@@ -134,9 +134,11 @@ public class ListaDeEmpleados extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
+                {"Benjamin", "xd", "weko",  new Integer(121212333)},
+                {"Benjamin", "Bing", "Pastelito",  new Integer(223232332)},
+                {"Jose", "Excel", "Rulitos",  new Integer(132122314)},
+                {"Matias ", "Huaso", "Momazo",  new Integer(123212233)},
+                {"John", "Tia", "Quiosco",  new Integer(123412421)},
                 {null, null, null, null}
             },
             new String [] {
@@ -178,9 +180,9 @@ public class ListaDeEmpleados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3)))))
+                                .addComponent(jTextField3))))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,9 +205,9 @@ public class ListaDeEmpleados extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(22, 22, 22))
         );
 
         pack();
